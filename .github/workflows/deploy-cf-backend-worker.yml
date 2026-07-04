@@ -48,19 +48,12 @@ jobs:
       - name: Install dependencies for the monorepo
         run: pnpm install --no-frozen-lockfile
 
-      - name: Navigate to Cloudflare worker app directory
-        run: cd apps/cf-server
-
-      - name: Install wrangler in cf-server
-        run: pnpm add wrangler@4.32.0 --workspace-root
-
       - name: Deploy to Cloudflare Workers
-        uses: cloudflare/wrangler-action@v3
-        with:
-          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          command: deploy apps/cf-server/src/index.ts --minify --env=""
-          wranglerVersion: "4.32.0"
+        run: pnpm exec wrangler deploy src/index.ts --minify
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        working-directory: apps/cf-server
 
       # Echo the deployed URL
       - name: Echo deployed URL
