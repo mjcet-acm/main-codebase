@@ -13,14 +13,14 @@
 	},
 	"dependencies": {
 		"dotenv": "^17.2.0",
-		"drizzle-kit": "^0.31.4",
-		"drizzle-orm": "^0.44.2",
+		"drizzle-kit": "^0.31.10",
+		"drizzle-orm": "^0.45.2",
 		"hono": "^4.9.12",
 		"hono-rate-limiter": "^0.4.2",
 		"nanoid": "^5.1.6",
-		"uuid": "^11.1.0"
+		"uuid": "^14.0.1"
 	},
 	"devDependencies": {
-		"wrangler": "^4.42.2"
+		"wrangler": "^4.107.0"
 	}
 }
