@@ -129,7 +129,6 @@ const Footer: React.FC = () => {
             </ul>
           </div>
 
-
           <div className="lg:col-span-4 text-left">
             <h3 className="mb-10 font-mono text-[11px] font-black tracking-[0.4em] text-neon-violet uppercase text-left">Chapter Briefings</h3>
             <div className="rounded-3xl border border-white/10 bg-white/[0.03] p-10 backdrop-blur-sm text-left">
