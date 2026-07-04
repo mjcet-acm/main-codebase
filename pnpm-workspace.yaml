@@ -1,5 +1,13 @@
 packages:
   - "packages/*"
   - "apps/*"
+allowBuilds:
+  '@parcel/watcher': true
+  '@swc/core': true
+  esbuild: true
+  nx: true
+  sharp: true
+  unrs-resolver: true
+  workerd: true
 autoInstallPeers: true
 strictPeerDependencies: false
