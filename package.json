@@ -5,8 +5,8 @@
   "scripts": {},
   "private": true,
   "engines": {
-    "node": ">=24.17.0",
-    "pnpm": ">=11.8.0"
+    "node": ">=22.0.0",
+    "pnpm": ">=9.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.14.5",

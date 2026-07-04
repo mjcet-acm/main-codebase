@@ -85,9 +85,9 @@ jobs:
         run: pnpm exec opennextjs-cloudflare build
         working-directory: apps/web
 
-      # Install Wrangler globally
+      # Install Wrangler locally
       - name: Install wrangler CLI
-        run: pnpm add -g wrangler
+        run: pnpm add -D wrangler --workspace-root
 
       # -----------------------------------------------------
       # 🚀 Deploy to Cloudflare Workers
