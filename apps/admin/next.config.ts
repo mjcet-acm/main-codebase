@@ -7,6 +7,7 @@ const nextConfig: NextConfig = {
   images:{
     domains:["lh3.googleusercontent.com"]
   },
+  outputFileTracingRoot: path.resolve(__dirname, '../../'),
   turbopack: {
     root: path.resolve(__dirname, '../../'),
   },
