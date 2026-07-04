@@ -1,11 +1,19 @@
-import { composePlugins, withNx } from '@nx/next';
 import type { NextConfig } from 'next';
 import path from 'path';
 import { initOpenNextCloudflareForDev } from '@opennextjs/cloudflare';
 
 const nextConfig: NextConfig = {
   images: {
-    domains: ["images.unsplash.com", "avatars.githubusercontent.com"]
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'images.unsplash.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'avatars.githubusercontent.com',
+      }
+    ]
   },
 
   reactStrictMode: true,
@@ -16,7 +24,12 @@ const nextConfig: NextConfig = {
   experimental: {
     externalDir: true,
   },
-  nx: {},
+  turbopack: {
+    resolveAlias: {
+      '@acm/api-endpoints': '../../packages/api-endpoints/src',
+      '@acm/portfolio-components': '../../packages/portfolio-components/src',
+    },
+  },
   webpack: (config) => {
     config.resolve.alias = {
       ...(config.resolve.alias ?? {}),
@@ -35,9 +48,6 @@ const nextConfig: NextConfig = {
   },
 };
 
-const plugins = [withNx];
-const composed = composePlugins(...plugins)(nextConfig);
-
 initOpenNextCloudflareForDev();
 
-export default composed;
+export default nextConfig;
